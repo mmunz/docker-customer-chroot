@@ -4,3 +4,40 @@
 
 Docker image based on debian-slim that can be used as a containerized environment
 to give customers restricted ssh access to their environment.
+
+## Packages
+
+Some system packages from passwd, base-passwd, adduser, login and mount are removed, these
+are not needed. Since they use setuid it is safer to remove them.
+
+Installed packages:
+
+- php7.0-cgi and most php extensions
+- nano
+- vim
+- vim-addon-manager 
+- git
+- rsync
+- mariadb-client
+- socat
+- wget
+- curl
+- patch
+- less
+- ssh-client
+- ca-certificates
+- bzip2
+- file
+- xz-utils
+- zip
+- unzip
+
+## usage
+
+Needs additional setup. Very simplified:
+
+- launch an instance of this container on user ssh login (e.g. with pam exec)
+- bind mount (docker -v) directories the user can use
+- give the user a custom shell that uses "docker exec" to run command in this use container
+
+
