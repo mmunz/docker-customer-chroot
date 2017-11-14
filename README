@@ -1,0 +1,6 @@
+# docker-customer-chroot
+
+## About
+
+Docker image based on debian-slim that can be used as a containerized environment
+to give customers restricted ssh access to their environment.
