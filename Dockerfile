@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM debian:bullseye-slim
 
 # install packages
 RUN apt-get update && apt-get install --no-install-recommends -y nano vim vim-scripts git rsync apt-transport-https \
@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y nano vim vim-sc
     php-mysql php-opcache php-readline php-soap php-sqlite3 php-xml php-zip zip unzip
 
 # INSTALL additional php versions
-RUN echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/sury.list \
+RUN echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/sury.list \
     && curl https://packages.sury.org/php/apt.gpg | apt-key add -  \
     && apt-get update && apt-get install --no-install-recommends -y php5.6-cli php5.6-bcmath php5.6-bz2 php5.6-curl php5.6-gd php5.6-gmp php5.6-json \
         php5.6-mbstring  php5.6-mysql php5.6-opcache php5.6-readline php5.6-soap php5.6-sqlite3 php5.6-xml php5.6-zip \
@@ -15,6 +15,10 @@ RUN echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.li
         php7.1-mbstring  php7.1-mysql php7.1-opcache php7.1-readline php7.1-soap php7.1-sqlite3 php7.1-xml php7.1-zip \
         php7.2-cli php7.2-bcmath php7.2-bz2 php7.2-curl php7.2-gd php7.2-gmp php7.2-json \
         php7.2-mbstring  php7.2-mysql php7.2-opcache php7.2-readline php7.2-soap php7.2-sqlite3 php7.2-xml php7.2-zip \
+        php8.0-cli php8.0-bcmath php8.0-bz2 php8.0-curl php8.0-gd php8.0-gmp \
+        php8.0-mbstring  php8.0-mysql php8.0-opcache php8.0-readline php8.0-soap php8.0-sqlite3 php8.0-xml php8.0-zip \
+        php8.1-cli php8.1-bcmath php8.1-bz2 php8.1-curl php8.1-gd php8.1-gmp \
+        php8.1-mbstring  php8.1-mysql php8.1-opcache php8.1-readline php8.1-soap php8.1-sqlite3 php8.1-xml php8.1-zip \
     && rm -rf /var/lib/apt/lists/*
 
 
